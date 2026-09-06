@@ -1,6 +1,6 @@
 import { HiOutlineOfficeBuilding, HiOutlineQuestionMarkCircle } from "react-icons/hi";
 import { HiOutlineWifi, HiOutlineBolt, HiOutlineUserGroup, HiSparkles } from "react-icons/hi2";
-import AuthTabs from "./AuthTabs";
+import AuthTabs from "../auth/AuthTabs";
 
 const features = [
   {
