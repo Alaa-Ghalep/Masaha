@@ -114,3 +114,33 @@ input:-webkit-autofill {
 
 
 
+/* src/index.css */
+:root {
+  /* ثيم اليوزر العادي (التركوازي) */
+  --user-primary: #009689;
+  --user-secondary: #005F5A;
+  
+  /* ثيم الأدمن (البنفسجي) */
+  --admin-primary: #7C3AED;
+  --admin-secondary: #5B21B6;
+
+  /* ثيم صاحب المساحة (مثلاً برتقالي) */
+  --owner-primary: #EA580C;
+  --owner-secondary: #9A3412;
+}
+
+/* عندما يكون الأب عنده كلاس theme-user */
+.theme-user {
+  --main-color: var(--user-primary);
+  --main-grad: linear-gradient(180deg, var(--user-primary) 0%, var(--user-secondary) 100%);
+}
+
+/* عندما يكون الأب عنده كلاس theme-admin */
+.theme-admin {
+  --main-color: var(--admin-primary);
+  --main-grad: linear-gradient(180deg, var(--admin-primary) 0%, var(--admin-secondary) 100%);
+}
+
+/* نستخدم هذه المتغيرات في الكود */
+.bg-brand-main { background-color: var(--main-color); }
+.bg-brand-grad { background-image: var(--main-grad); }

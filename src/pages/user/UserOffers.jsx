@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { RiPriceTag3Line, RiCalendarEventLine, RiGroupLine } from 'react-icons/ri';
 import EventRegisterModal from '../../components/modals/EventRegisterModal';
+import PageHeader from '../../components/layout/PageHeader';
 
 const UserOffers = () => {
   const [isEventOpen, setIsEventOpen] = useState(false);

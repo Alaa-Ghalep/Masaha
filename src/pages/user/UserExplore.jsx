@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { RiSearchLine, RiFilterLine, RiWifiLine, RiTimeLine, RiChargingPile2Line, RiStarLine } from 'react-icons/ri';
+import { RiSearchLine, RiWifiLine, RiTimeLine, RiChargingPile2Line, RiStarLine } from 'react-icons/ri';
+import PageHeader from '../../components/layout/PageHeader';
 
 const UserExplore = () => {
   const navigate = useNavigate();
@@ -8,41 +9,15 @@ const UserExplore = () => {
     return percent >= 80 ? "#EF4444" : "#009689";
   };
 
-  // بيانات تجريبية - بدلها لاحقاً ببيانات حقيقية من الـ API
   const spaces = [
-    {
-      id: 1,
-      name: "مساحة الريادة",
-      region: "غزة - حي الرمال",
-      price: 20,
-      speed: 200,
-      occupancy: 80,
-    },
-    {
-      id: 2,
-      name: "مساحة الإبداع",
-      region: "غزة",
-      price: 15,
-      speed: 100,
-      occupancy: 45,
-    },
-    {
-      id: 3,
-      name: "مساحة المستقبل",
-      region: "الوسطى",
-      price: 12,
-      speed: 150,
-      occupancy: 30,
-    },
+    { id: 1, name: "مساحة الريادة",  region: "غزة - حي الرمال", price: 20, speed: 200, occupancy: 80 },
+    { id: 2, name: "مساحة الإبداع",  region: "غزة",             price: 15, speed: 100, occupancy: 45 },
+    { id: 3, name: "مساحة المستقبل", region: "الوسطى",          price: 12, speed: 150, occupancy: 30 },
   ];
 
   return (
-    <div  className="space-y-8 animate-in slide-in-from-bottom-5 duration-700">
-      {/* Header Section */}
-      <div>
-        <h1 className="text-res-h1 text-[#0F172B]">استكشاف المساحات</h1>
-        <p className="text-slate-400 text-sm mt-1">ابحث عن المساحة المثالية لك</p>
-      </div>
+    <div className="space-y-8 animate-in slide-in-from-bottom-5 duration-700">
+      <PageHeader title="استكشاف المساحات" icon={<RiSearchLine />} role="user" />
 
       <div className="flex gap-4">
         <div className="flex-1 relative group">

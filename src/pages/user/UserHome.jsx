@@ -1,4 +1,5 @@
-import { RiMapPinLine, RiLayoutGridLine, RiStarFill , RiHome4Fill,RiHeartFill } from 'react-icons/ri';
+import { RiMapPinLine, RiLayoutGridLine, RiStarFill, RiHome4Fill, RiHeartFill } from 'react-icons/ri';
+import PageHeader from '../../components/layout/PageHeader';
 
 const UserHome = () => {
   const categories = ['الكل', 'غزة', 'الوسطى', 'الجنوب'];
@@ -12,12 +13,7 @@ const UserHome = () => {
 
   return (
     <div className="space-y-8 animate-in fade-in duration-700">
-        <header className="flex justify-between items-center mb-8 px-2">
-        <h1 className="text-xl font-black text-slate-800">الرئيسية</h1>
-        <div className="w-10 h-10 bg-[#009689] rounded-full flex items-center justify-center text-white shadow-lg shadow-[#009689]/20">
-          <RiHome4Fill size={20} />
-        </div>
-      </header>
+      <PageHeader title="الرئيسية" icon={<RiHome4Fill />} role="user" />
     <section className="relative overflow-hidden bg-gradient-to-b from-[var(--primary)] via-[#3AAFA6] to-[var(--primary-hover)] rounded-[32px] p-8 md:p-12 text-white">
         <div className="relative z-10 space-y-2">
           <p className="text-res-p opacity-90 text-[var(--secondary-color)]">مرحباً بعودتك 👋</p>

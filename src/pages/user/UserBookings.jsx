@@ -1,24 +1,26 @@
 import React, { useState } from 'react';
-import { RiTimeLine, RiArmchairLine, RiMoneyDollarCircleLine, RiEditLine, RiCloseCircleLine } from 'react-icons/ri';
+import { RiTimeLine, RiArmchairLine, RiMoneyDollarCircleLine, RiEditLine, RiCloseCircleLine, RiCalendarCheckLine } from 'react-icons/ri';
 import EditBookingModal from '../../components/modals/EditBookingModal';
+import PageHeader from '../../components/layout/PageHeader';
 
 const UserBookings = () => {
   const [filter, setFilter] = useState('الكل');
   const [isEditOpen, setIsEditOpen] = useState(false);
 
   const bookings = [
-    { id: 1, name: 'مساحة الإبداع', date: '2024/12/10', time: '8 ساعات', seat: 'مقعد عادي', price: '120₪', status: 'نشط' },
-    { id: 2, name: 'مساحة المستقبل', date: '2024/11/25', time: '3 ساعات', seat: 'مكتب خاص', price: '60₪', status: 'منتهي' },
-    { id: 3, name: 'مساحة التطوير', date: '2024/11/10', time: '1 ساعة', seat: 'مقعد عادي', price: '20₪', status: 'ملغي' },
+    { id: 1, name: 'مساحة الإبداع',  date: '2024/12/10', time: '8 ساعات', seat: 'مقعد عادي', price: '120₪', status: 'نشط' },
+    { id: 2, name: 'مساحة المستقبل', date: '2024/11/25', time: '3 ساعات', seat: 'مكتب خاص',  price: '60₪',  status: 'منتهي' },
+    { id: 3, name: 'مساحة التطوير',  date: '2024/11/10', time: '1 ساعة',  seat: 'مقعد عادي', price: '20₪',  status: 'ملغي' },
   ];
 
   return (
     <div className="space-y-8 animate-in fade-in duration-700">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <h1 className="text-2xl font-black text-slate-800">حجوزاتي</h1>
+      <PageHeader title="حجوزاتي" icon={<RiCalendarCheckLine />} role="user" />
+
+      <div className="flex justify-end">
         <div className="flex bg-slate-100 p-1 rounded-xl">
           {['الكل', 'حالية', 'قادمة', 'منتهية'].map(f => (
-            <button 
+            <button
               key={f} onClick={() => setFilter(f)}
               className={`px-6 py-2 rounded-lg text-xs font-bold transition-all ${filter === f ? 'bg-white shadow-sm text-brand-600' : 'text-slate-400'}`}
             >

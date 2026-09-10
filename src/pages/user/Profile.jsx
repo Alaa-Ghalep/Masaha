@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { RiEdit2Line, RiHeartFill, RiCopperCoinLine, RiTrophyLine } from 'react-icons/ri';
+import { RiEdit2Line, RiHeartFill, RiCopperCoinLine, RiTrophyLine, RiUserLine } from 'react-icons/ri';
 import EditProfileModal from '../../components/modals/EditProfileModal';
+import PageHeader from '../../components/layout/PageHeader';
 
 const Profile = () => {
   const [isEditOpen, setIsEditOpen] = useState(false);
 
   return (
     <div className="space-y-8 animate-in fade-in duration-700">
-      <h1 className="text-2xl font-black text-slate-800 underline decoration-brand-500 underline-offset-[12px]">البروفايل الشخصي</h1>
+      <PageHeader title="البروفايل الشخصي" icon={<RiUserLine />} role="user" />
 
       {/* User Info Card */}
       <div className="bg-white p-8 rounded-[40px] border border-slate-100 flex flex-col md:flex-row items-center gap-8 shadow-sm relative overflow-hidden group">
