@@ -14,10 +14,13 @@ import UsersManagement from '../pages/admin/UsersManagement';
 import AdminNotifications from '../pages/admin/AdminNotifications';
 import AdminReports from '../pages/admin/AdminReports';
  import { SpacesManagement, EditSpace } from '../pages/admin/SpacesManagement';
-// import { SpacesManagement } from '../pages/admin/SpacesManagement';
 import SpaceOwners from '../pages/admin/SpaceOwners';
 import OwnerDashboard from '../pages/owner/OwnerDashboard';
 import ReceptionistDashboard from '../pages/receptionist/ReceptionistDashboard';
+import Bookingdetails from '../pages/receptionist/Bookingdetails';
+import Paymentnotifications from '../pages/receptionist/Paymentnotifications';
+import StatisticsPage from '../pages/receptionist/StatisticsPage';
+import NotificationsPage from '../pages/receptionist/NotificationsPage';
 
 const AppRouter = () => {
   return (
@@ -60,10 +63,10 @@ const AppRouter = () => {
       {/* -------- Receptionist -------- */}
       <Route path="/receptionist" element={<MainLayout role="receptionist" />}>
         <Route path="dashboard" element={<ReceptionistDashboard />} />
-        <Route path="bookings" element={<UserBookings />} />
-        <Route path="visitors" element={<UsersManagement />} />
-        <Route path="requests" element={<UserBookings />} />
-        <Route path="notifications" element={<AdminNotifications />} />
+        <Route path="bookings" element={<Bookingdetails />} />
+        <Route path="paymentnotifications" element={<Paymentnotifications />} />
+        <Route path="statisticspage" element={<StatisticsPage />} />
+        <Route path="notificationspage" element={<NotificationsPage />} />
       </Route>
 
       <Route path="/register" element={<Register />} />

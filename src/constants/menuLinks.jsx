@@ -35,9 +35,10 @@ export const MENU_LINKS = {
 
   receptionist: [
     { name: 'الرئيسية',         path: '/receptionist/dashboard',         icon: <RiHome4Line />,         exact: true },
-    { name: 'الحجوزات',         path: '/receptionist/bookings',          icon: <RiCalendarCheckLine /> },
-    { name: 'قائمة الزوار',     path: '/receptionist/visitors',         icon: <RiTeamLine /> },
-    { name: 'الطلبات',          path: '/receptionist/requests',         icon: <RiFileListLine /> },
-    { name: 'الإشعارات',        path: '/receptionist/notifications',    icon: <RiNotification3Line /> },
+    { name: 'تسجيل الوصول',         path: '/receptionist/Chechin',         icon: <RiHome4Line />,         },
+    { name: 'تفاصيل الحجوزات',         path: '/receptionist/bookings',          icon: <RiCalendarCheckLine /> },
+    { name: ' اشعارات الدفع',         path: '/receptionist/paymentnotifications',          icon: <RiCalendarCheckLine /> },
+    { name: '  الاحصائيات',         path: '/receptionist/statisticspage',          icon: <RiCalendarCheckLine /> },
+    { name: 'الإشعارات',        path: '/receptionist/notificationspage',    icon: <RiNotification3Line /> },
   ],
 };

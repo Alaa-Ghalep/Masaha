@@ -7,10 +7,10 @@ import {
 
 
 const ROLE_GRADIENT = {
-  user:         'from-[#009689] to-[#005F5A]',
-  admin:        'from-[#9810FA] to-[#59168B]',
-  owner:        'from-[#E17100] to-[#973C00]',
-  receptionist: 'from-[#0084D1] to-[#00598A]',
+  user:         'from-[var(--user-primary)] to-[var(--user-secondary)]',
+  admin:        'from-[var(--admin-primary)] to-[var(--admin-secondary)]', 
+  owner:        'from-[var(--owner-primary)] to-[var(--owner-secondary)]',
+  receptionist: 'from-[var(--receptionist-primary)] to-[var(--receptionist-secondary)]',
 };
 
 
