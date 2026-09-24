@@ -17,10 +17,11 @@ const UserNotifications = () => {
   const markAllAsRead = () => setNotifications(notifications.map(n => ({ ...n, isRead: true })));
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 pb-20">
+    
+    <div className="space-y-10 animate-in slide-in-from-bottom-4 duration-700 pb-20">
+
       <PageHeader title="الإشعارات" icon={<RiNotification3Line />} role="user" />
 
-      {/* زر تحديد الكل */}
       <div className="flex justify-end">
         <button
           onClick={markAllAsRead}
@@ -53,7 +54,7 @@ const UserNotifications = () => {
               key={notif.id}
               className={`
                 group relative bg-white p-5 md:p-6 rounded-[28px] border border-slate-100 flex gap-4 md:gap-6 items-start transition-all hover:shadow-md
-                ${!notif.isRead ? 'border-r-4 border-r-brand-500' : ''}
+                ${!notif.isRead ? 'border-brand-500' : 'border-slate-100'}
               `}
             >
               {/* Icon Container */}
@@ -73,13 +74,7 @@ const UserNotifications = () => {
                   {notif.desc}
                 </p>
                 
-                {/* Action Buttons (Show on Hover) */}
-                <div className="flex gap-4 pt-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                   <button className="text-[10px] font-black text-brand-500 hover:underline">عرض التفاصيل</button>
-                   <button className="text-[10px] font-black text-red-400 hover:underline flex items-center gap-1">
-                     <RiDeleteBin7Line /> حذف
-                   </button>
-                </div>
+              
               </div>
 
               {/* Unread Indicator Dot */}

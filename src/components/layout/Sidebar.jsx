@@ -3,8 +3,7 @@
 import { NavLink } from 'react-router-dom';
 import { MENU_LINKS } from '../../constants/menuLinks';
 import {
-  RiUserLine,
-  RiBuilding2Line,
+ RiBuilding2Line,
   RiShieldUserLine,
   RiCustomerService2Line,
   RiAccountCircleLine,

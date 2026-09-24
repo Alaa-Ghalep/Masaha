@@ -26,11 +26,11 @@ export const MENU_LINKS = {
 
   owner: [
     { name: 'الرئيسية',         path: '/owner/dashboard',        icon: <RiHome4Line />,    exact: true },
-    { name: 'مساحاتي',          path: '/owner/spaces',           icon: <RiBuildingLine /> },
-    { name: 'الحجوزات',         path: '/owner/bookings',         icon: <RiCalendarCheckLine /> },
+    { name: 'الفعاليات',          path: '/owner/spaces',           icon: <RiBuildingLine /> },
+    { name: 'العروض',         path: '/owner/bookings',         icon: <RiCalendarCheckLine /> },
     { name: 'التقارير',         path: '/owner/reports',          icon: <RiBarChartBoxLine /> },
-    { name: 'الإشعارات',        path: '/owner/notifications',    icon: <RiNotification3Line /> },
-    { name: 'الإعدادات',        path: '/owner/settings',         icon: <RiSettings3Line /> },
+    { name: 'الطوارئ',        path: '/owner/notifications',    icon: <RiNotification3Line /> },
+    { name: 'ادارة الموظفين',        path: '/owner/settings',         icon: <RiSettings3Line /> },
   ],
 
   receptionist: [

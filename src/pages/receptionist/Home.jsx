@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { RiHome5Line, RiUserReceived2Line } from "react-icons/ri";
-
-import PageHeader from "../../components/common/PageHeader"; // ← عدّلي المسار حسب مشروعك
+import PageHeader from "../../components/common/PageHeader"; 
 import OccupancyCard from "../../components/receptionist/OccupancyCard";
 import AttendeesList from "../../components/receptionist/AttendeesList";
 import CheckInForm from "../../components/receptionist/CheckInForm";
@@ -21,7 +20,7 @@ export default function Home() {
         id: crypto.randomUUID(),
         name,
         hours,
-        seat: "—", // لاحقاً: يُحدَّد من الـ API
+        seat: "—", 
         checkInTime: new Date().toLocaleTimeString("ar-EG", {
           hour: "2-digit",
           minute: "2-digit",
@@ -30,7 +29,8 @@ export default function Home() {
     ]);
 
   return (
-    <>
+       <div className="space-y-10 font-['Cairo']">
+
       <PageHeader
         title="الرئيسية"
         icon={<RiHome5Line />}
@@ -38,7 +38,7 @@ export default function Home() {
         roleIcon={<RiUserReceived2Line size={20} />}
       />
 
-      <div className="mx-auto flex w-full max-w-3xl flex-col gap-5 p-4">
+      {/* <div className="mx-auto flex w-full max-w-3xl flex-col gap-5 p-4">
         <OccupancyCard occupied={occupied} capacity={SPACE_CAPACITY} />
         <AttendeesList attendees={attendees} onCheckOut={handleCheckOut} />
         <CheckInForm
@@ -46,7 +46,7 @@ export default function Home() {
           capacity={SPACE_CAPACITY}
           onCheckIn={handleCheckIn}
         />
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 }

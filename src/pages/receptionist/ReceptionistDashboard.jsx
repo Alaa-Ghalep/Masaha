@@ -262,7 +262,8 @@ const ReceptionistDashboard = () => {
   };
 
   return (
-    <div className="p-8">
+       <div className="space-y-10 ">
+
       <PageHeader title="لوحة تحكم الاستقبال" icon={<RiCustomerService2Line />} role="receptionist" />
       <main className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         <div className="md:col-span-2 lg:col-span-3">

@@ -8,6 +8,7 @@ const UserOffers = () => {
 
   return (
     <div className="space-y-10 animate-in slide-in-from-bottom-4 duration-700 pb-20">
+       <PageHeader title="العروض النشطة" icon={<RiPriceTag3Line />} role="user" />
       {/* Active Offers Section */}
       <section className="space-y-6">
         <h2 className="text-xl font-black text-slate-800 flex items-center gap-2">

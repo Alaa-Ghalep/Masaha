@@ -45,7 +45,6 @@ export default function Register() {
   const onSubmit = async (data) => {
     setServerError("");
     try {
-      // await authService.register(data);
       console.log("register payload", data);
       navigate("/login");
     } catch (err) {

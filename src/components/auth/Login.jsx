@@ -6,8 +6,6 @@ import { z } from "zod";
 import { HiOutlineMail, HiOutlineLockClosed, HiEye, HiEyeOff } from "react-icons/hi";
 import AuthLayout from "../../components/auth/AuthLayout";
 import Input from "../../components/ui/Input";
-import Button from "../../components/ui/Button";
-// import { useAuthStore } from "../../store/authStore";
 
 const loginSchema = z.object({
   email: z.string().min(1, "البريد الإلكتروني مطلوب").email("صيغة البريد غير صحيحة"),
@@ -18,16 +16,13 @@ export default function Login() {
   const navigate = useNavigate();
   
   const handleLogin = (e) => {
-    // لمنع تحديث الصفحة إذا كان الزر داخل Form
     e.preventDefault(); 
     
-    // الانتقال المباشر إلى الداشبورد
     navigate('/dashboard');
   };
 
   const [showPassword, setShowPassword] = useState(false);
   const [serverError, setServerError] = useState("");
-  // const login = useAuthStore((s) => s.login);
 
   const {
     register,
@@ -38,7 +33,6 @@ export default function Login() {
   const onSubmit = async (data) => {
     setServerError("");
     try {
-      // await login(data); // اتصال فعلي بالـ API عبر authService
       console.log("login payload", data);
       navigate("/dashboard");
     } catch (err) {
@@ -96,9 +90,6 @@ export default function Login() {
           </p>
         )}
 
-        {/* <Button type="submit" className="bg-red-500" isLoading={isSubmitting}>
-          تسجيل الدخول
-        </Button> */}
       
         <button
       onClick={handleLogin}

@@ -1,5 +1,5 @@
-export const SPACE_CAPACITY = 30;      // إجمالي المقاعد
-export const MAX_SESSION_HOURS = 8;    // أقصى مدة جلسة (لحساب شريط التقدم)
+export const SPACE_CAPACITY = 30;    
+export const MAX_SESSION_HOURS = 8;  
 
 export const INITIAL_ATTENDEES = [
   { id: 1, name: "يوسف أحمد",    seat: "A-01", hours: 3, checkInTime: "٨:٣٠" },
@@ -10,6 +10,5 @@ export const INITIAL_ATTENDEES = [
   { id: 6, name: "ليلى سمير",    seat: "C-02", hours: 3, checkInTime: "٨:٤٥" },
 ];
 
-/** صيغة الساعات بالعربي: ساعة / ساعتان / ساعات */
 export const hoursLabel = (h) =>
   h === 1 ? "ساعة" : h === 2 ? "ساعتان" : h <= 10 ? "ساعات" : "ساعة";

@@ -68,28 +68,28 @@ const UserExplore = () => {
                     </span>
                   </div>
 
-<div className="space-y-2">
-  <div className="flex justify-between text-[11px] font-bold">
-    <span className="text-slate-400 uppercase tracking-tighter"> الإشغال </span>
-    <span style={{ color: occupancyColor }}>{space.occupancy}%</span>
-  </div>
-  <div dir="ltr" className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden flex justify-start">
-    <div
-      className="h-full rounded-full transition-all"
-      style={{
-        width: `${space.occupancy}%`,
-        backgroundColor: occupancyColor,
-        boxShadow: `0 0 10px ${occupancyColor}4D`,
-      }}
-    ></div>
-  </div>
-</div>
+          <div className="space-y-2">
+            <div className="flex justify-between text-[11px] font-bold">
+              <span className="text-slate-400 uppercase tracking-tighter"> الإشغال </span>
+              <span style={{ color: occupancyColor }}>{space.occupancy}%</span>
+            </div>
+            <div dir="ltr" className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden flex justify-start">
+              <div
+                className="h-full rounded-full transition-all"
+                style={{
+                  width: `${space.occupancy}%`,
+                  backgroundColor: occupancyColor,
+                  boxShadow: `0 0 10px ${occupancyColor}4D`,
+                }}
+              ></div>
+            </div>
+          </div>
 
-  <div className="flex justify-between items-start">
-     <div className="flex items-baseline justify-center gap-1 px-4 py-2 rounded-2xl text-center">
-  <span className="text-5xl font-black text-[#009689]">{space.price}₪</span>
-  <p className="text-[15px] text-slate-400 font-bold uppercase">/ ساعة</p>
-</div>
+      <div className="flex justify-between items-start">
+            <div className="flex items-baseline justify-center gap-1 px-4 py-2 rounded-2xl text-center">
+          <span className="text-5xl font-black text-[#009689]">{space.price}₪</span>
+          <p className="text-[15px] text-slate-400 font-bold uppercase">/ ساعة</p>
+        </div>
                   <div className="flex justify-end gap-3 pt-2">
                     <button
                       onClick={(e) => {

@@ -1,5 +1,6 @@
 import { RiMapPinLine, RiLayoutGridLine, RiStarFill, RiHome4Fill, RiHeartFill } from 'react-icons/ri';
 import PageHeader from '../../components/layout/PageHeader';
+import { Link, useNavigate } from "react-router-dom";
 
 const UserHome = () => {
   const categories = ['الكل', 'غزة', 'الوسطى', 'الجنوب'];
@@ -43,8 +44,10 @@ const UserHome = () => {
           <h2 className="text-xl font-bold flex items-center gap-2 text-[#0F172B]">
             <RiLayoutGridLine className="text-[#009689]" /> الأكثر استخداماً
           </h2>
-          <button className="bg-[#009689] hover:bg-[#0D9488] text-white text-xs font-bold px-5 py-2 rounded-xl transition-all">
+          <button className="bg-[#009689] hover:bg-[#0D9488] text-white text-xs font-bold px-5 py-2 rounded-xl transition-all cursor-pointer">
+            <Link to="/dashboard/explore" className="flex items-center gap-1">
             عرض كل المساحات
+            </Link>
           </button>
         </div>
 

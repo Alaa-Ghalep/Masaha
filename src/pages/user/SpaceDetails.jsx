@@ -1,12 +1,25 @@
 import { useState } from 'react';
-import { RiArrowRightLine, RiWifiLine, RiFlashlightLine, RiUserStarLine, RiCheckLine, RiStarFill } from 'react-icons/ri';
+import { RiArrowRightLine, RiWifiLine, RiFlashlightLine, RiUserStarLine, RiCheckLine, RiStarFill,RiStarLine  } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 import BookingModal from '../../components/modals/BookingModal';
-
+ import ReviewsView from './Reviewsview';
 const SpaceDetails = () => {
   const navigate = useNavigate();
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [selectedRating, setSelectedRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+  const totalReviews = 3;
+  const averageRating = 4.9;
 
+  const [view, setView] = useState("details"); 
+  if (view === "reviews") {
+  return (
+    <ReviewsView
+      workspaceName="مساحة الإبداع"
+      onBack={() => setView("details")}
+    />
+  );
+}
   return (
     <div className="space-y-6 pb-20 animate-in fade-in slide-in-from-bottom-4">
       {/* Header & Back Button */}
@@ -64,32 +77,94 @@ const SpaceDetails = () => {
             <span className="text-slate-400 text-xs font-bold uppercase">نسبة الإشغال الحالية</span>
             <span className="text-[var(--primary)] font-black text-xl">70%</span>
          </div>
-         <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+         <div dir="ltr"className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
             <div className="bg-[var(--primary)] h-full w-[70%] rounded-full shadow-[0_0_15px_rgba(0,150,137,0.4)]"></div>
          </div>
-         <p className="text-[10px] text-[var(--primary)] font-bold">12 مقعد متاح من أصل 40</p>
+         <p className="text-[10px] text-slate-400 font-bold">12 مقعد متاح من أصل 40</p>
       </div>
 
       {/* Rating & Action */}
-      <div className="bg-white p-8 rounded-[32px] border border-slate-100 space-y-6">
-          <div className="flex justify-between items-center">
-            <h3 className="font-bold text-[var(--primary)] flex items-center gap-2">⭐ تقييم المساحة</h3>
-            <span className="text-brand-500 font-bold">4.9 <small className="text-[var(--primary)]">(30)</small></span>
-          </div>
-          <textarea placeholder="اكتب تعليقك (اختياري)..." className="w-full bg-slate-50 border border-slate-100 rounded-2xl p-4 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/20 h-24"></textarea>
-          <div className="flex gap-4">
-            <button className="flex-1 bg-slate-100 text-slate-500 font-bold py-4 rounded-2xl">إلغاء</button>
-            <button className="flex-1  bg-[var(--primary)] text-white font-bold py-4 rounded-2xl shadow-lg shadow-brand-500/20">إرسال التقييم</button>
-          </div>
-      </div>
+    <div className="bg-white p-8 rounded-[32px] border border-slate-100 space-y-6">
+  <div className="flex justify-between items-center">
+    <h3 className="font-bold text-xl text-[var(--primary)] flex items-center gap-2">
+     <RiStarFill className="text-yellow-400" size={16} /> تقييم المساحة
+    </h3>
 
+    <span className="flex items-center gap-1 text-sm font-bold text-[var(--primary)]">
+      {averageRating}
+      <span className="flex items-center gap-0.5 mx-1">
+        {[...Array(5)].map((_, i) => (
+          <RiStarFill
+            key={i}
+            size={13}
+            className={i < Math.round(averageRating) ? 'text-yellow-400' : 'text-slate-200'}
+          />
+        ))}
+      </span>
+      <small className="text-slate-400 font-normal">({totalReviews})</small>
+    </span>
+  </div>
+
+
+  <div className="flex items-center justify-center gap-2">
+    {[1, 2, 3, 4, 5].map((star) => {
+      const isFilled = star <= (hoverRating || selectedRating);
+      return (
+        <button
+          key={star}
+          type="button"
+          onClick={() => setSelectedRating(star)}
+          onMouseEnter={() => setHoverRating(star)}
+          onMouseLeave={() => setHoverRating(0)}
+          className="cursor-pointer transition"
+        >
+          {isFilled ? (
+            <RiStarFill size={28} className="text-yellow-400" />
+          ) : (
+            <RiStarLine size={28} className="text-slate-200" />
+          )}
+        </button>
+      );
+    })}
+  </div>
+
+  <textarea
+    placeholder="اكتب تعليقك (اختياري)..."
+    className="w-full bg-slate-50 border border-slate-100 rounded-2xl p-4 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/20 h-24"
+  ></textarea>
+
+  <div className="flex gap-4">
     
-      <button 
-        onClick={() => setIsBookingOpen(true)}
-        className=" w-full bottom-6   bg-[var(--primary)] text-white font-black py-5 rounded-3xl shadow-2xl z-40 hover:scale-105 transition-transform"
-      >
-        احجز الآن
-      </button>
+    <button
+      disabled={selectedRating === 0}
+      className={`flex-1 font-bold py-4 rounded-2xl cursor-pointer transition ${
+        selectedRating === 0
+          ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
+          : 'bg-[var(--primary)] text-white shadow-lg shadow-[var(--primary)]/20'
+      }`}
+    >
+      إرسال التقييم
+    </button>
+    <button className="flex-1 bg-white border border-slate-200 text-slate-600 font-bold py-4 rounded-2xl cursor-pointer">
+      إلغاء
+    </button>
+  </div>
+</div>
+
+<button
+  type="button"
+  className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl border border-dashed border-emerald-200 bg-emerald-50/40 text-emerald-600 font-bold text-sm cursor-pointer"
+onClick={() => setView("reviews")} >
+  <RiStarFill className="text-yellow-400" size={14} />
+  اقرأ جميع التقييمات ({totalReviews} تقييم)
+</button>
+
+<button
+  onClick={() => setIsBookingOpen(true)}
+  className="w-full bottom-6 bg-[var(--primary)] focus:bg-[var(--primary-hover)] text-white font-black py-5 rounded-3xl shadow-2xl z-40 cursor-pointer"
+>
+  احجز الآن
+</button>
 
       {/* Booking Modal */}
       <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />

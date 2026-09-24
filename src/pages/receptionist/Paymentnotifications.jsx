@@ -1,15 +1,14 @@
 import { useState } from "react";
 import {
-  RiCustomerService2Line,
   RiCalendarLine,
   RiCheckboxCircleLine,
   RiImageLine,
   RiCloseLine,
   RiCheckLine,
 } from "react-icons/ri";
+import WifiActivationModal from '../../components/modals/WifiActivationModal';
 
 import PageHeader from '../../components/layout/PageHeader';
-
 
 const INITIAL_NOTIFICATIONS = [
   {
@@ -64,6 +63,8 @@ function ReceiptThumb({ url, alt }) {
 }
 
 function PaymentNotificationCard({ notification, onConfirm, onReject, onView }) {
+const [activeNotification, setActiveNotification] = useState(null);
+
   return (
     <article className="rounded-3xl border-2 border-amber-200 bg-white p-4 shadow-sm shadow-amber-100/60 sm:p-5">
       <div className="mb-4 flex  justify-between gap-4">
@@ -97,14 +98,14 @@ function PaymentNotificationCard({ notification, onConfirm, onReject, onView }) 
       </div>
 
       <div className="flex items-center gap-3">
-        <button
-          type="button"
-          onClick={() => onConfirm(notification.id)}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#16A34A] px-4 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90"
-        >
-          تأكيد وتفعيل
-          <RiCheckboxCircleLine className="text-lg" />
-        </button>
+          <button
+            type="button"
+            onClick={() => setActiveNotification(notification)} 
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#16A34A] px-4 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90"
+          >
+            تأكيد وتفعيل
+            <RiCheckboxCircleLine className="text-lg" />
+          </button>
 
         <button
           type="button"
@@ -124,7 +125,18 @@ function PaymentNotificationCard({ notification, onConfirm, onReject, onView }) 
           <RiCloseLine />
         </button>
       </div>
+     <WifiActivationModal
+        isOpen={!!activeNotification}
+        onClose={() => setActiveNotification(null)}
+        notification={activeNotification}
+        onConfirm={(id, credentials) => {
+          onConfirm(id, credentials);     
+          setActiveNotification(null);
+        }}
+        />
+ 
     </article>
+    
   );
 }
 
@@ -230,7 +242,11 @@ export default function PaymentNotifications() {
             </div>
           </section>
         )}
+             
+
       </div>
+
     </div>
+    
   );
 }

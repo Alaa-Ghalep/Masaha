@@ -74,11 +74,19 @@ export const SpacesManagement = () => {
           <div className="flex-1 space-y-4">
             <div className="flex justify-between items-start">
               <div>
-                <div className="flex gap-2 items-center mb-1">
+               <div className="flex items-center  gap-2">
+                <div>
+                  <h2 className="text-xl font-black text-slate-800">{item.name}</h2>
+                  </div>
+                            
+             <div className="flex gap-2 items-center mb-1">
                   <span className="bg-emerald-50 text-emerald-500 text-[13px] font-bold px-3 py-0.5 rounded-full">{item.status}</span>
                   <span className="bg-violet-50 text-violet-500 text-[13px] font-bold px-3 py-0.5 rounded-full">{item.category}</span>
                 </div>
-                <h2 className="text-xl font-black text-slate-800">{item.name}</h2>
+                
+                  </div>
+
+               
                 <p className="text-[13px] text-slate-400 font-bold">{item.seats} مقعد • {item.speed} Mbps • {item.power}</p>
                 <div className="flex gap-2 items-center flex-wrap mt-2">
                   {item.amenities.map((a, idx) => (
