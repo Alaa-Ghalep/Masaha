@@ -20,14 +20,14 @@ const ROLE_STYLES = {
 const ROLE_LABELS = {
   user:         'نظام إدارة مشارك',
   admin:        'لوحة تحكم الإدارة',
-  owner:        'لوحة المالك',
+  owner:        'صاحب المساحة ',
   receptionist: 'لوحة الاستقبال',
 };
 
 const ROLE_NAMES = {
   user:         'المستخدم',
   admin:        'الأدمن العام',
-  owner:        'المالك',
+  owner:        'صاحب المساحة',
   receptionist: 'موظف الاستقبال',
 };
 

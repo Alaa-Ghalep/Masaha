@@ -21,7 +21,11 @@ import Bookingdetails from '../pages/receptionist/Bookingdetails';
 import Paymentnotifications from '../pages/receptionist/Paymentnotifications';
 import StatisticsPage from '../pages/receptionist/StatisticsPage';
 import NotificationsPage from '../pages/receptionist/NotificationsPage';
-
+import EventsManagement from '../pages/owner/Eventsmanagement';
+import OffersManagement from '../pages/owner/Offersmanagement';
+import Reports from '../pages/owner/Reports';
+import Emergencymanagement from '../pages/owner/Emergencymanagement';
+import StaffManagement from '../pages/owner/Staffmanagement';
 const AppRouter = () => {
   return (
     <Routes>
@@ -54,10 +58,11 @@ const AppRouter = () => {
       {/* -------- Owner -------- */}
       <Route path="/owner" element={<MainLayout role="owner" />}>
         <Route path="dashboard" element={<OwnerDashboard />} />
-        <Route path="spaces" element={<SpacesManagement />} />
-        <Route path="bookings" element={<UserBookings />} />
-        <Route path="reports" element={<AdminReports />} />
-        <Route path="notifications" element={<AdminNotifications />} />
+        <Route path="events" element={<EventsManagement />} />
+        <Route path="offers" element={<OffersManagement />} />
+        <Route path="reports" element={<Reports />} />
+        <Route path="emergency" element={<Emergencymanagement />} />
+        <Route path="staff" element={<StaffManagement />} />
       </Route>
 
       {/* -------- Receptionist -------- */}

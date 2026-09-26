@@ -7,22 +7,18 @@ import {
   RiPulseLine,
   RiStore2Line,
 } from "react-icons/ri";
-// عدّل المسار حسب مكان الهيدر عندك
 import PageHeader from '../../components/layout/PageHeader';
 
-/*
-  ألوان دور owner:
-  استخدمت var(--owner-primary) مع fallback على var(--primary)
-  فإذا اسم المتغير عندك مختلف غيّره مرة وحدة هون.
-*/
+
+  // 'from-[var(--owner-primary)] to-[var(--owner-secondary)]'
+
 const OWNER = "var(--owner-primary,var(--primary))";
 
 const arNum = (n) => Number(n).toLocaleString("ar-EG");
 
-/* ───────── بيانات تجريبية (استبدلها بالبيانات الحقيقية) ───────── */
 const STATS = {
   todayBookings: 28,
-  bookingsDelta: 8, // % عن أمس
+  bookingsDelta: 8, 
   occupied: 22,
   capacity: 40,
   revenue: 440,
@@ -39,41 +35,38 @@ const RECENT_BOOKINGS = [
 ];
 
 const STATUS_STYLES = {
-  active: { label: "جارية", cls: "bg-emerald-50 text-emerald-600 border-emerald-200" },
+  active: { label: "حالية", cls: "bg-emerald-50 text-emerald-600 border-emerald-200" },
   upcoming: { label: "قادمة", cls: "bg-sky-50 text-sky-600 border-sky-200" },
   done: { label: "منتهية", cls: "bg-slate-50 text-slate-500 border-slate-200" },
 };
 
-/* ───────── بطاقة إحصائية ───────── */
 function StatCard({ icon, iconBg, label, value, sub }) {
   return (
     <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-4 flex flex-col gap-3">
-      <div className="flex items-start gap-3">
-        <div
-          className={`w-11 h-11 shrink-0 rounded-xl flex items-center justify-center text-white text-xl ${iconBg}`}
-        >
-          {icon}
-        </div>
-        <div className="min-w-0">
-          <p className="text-[11px] text-slate-500 font-medium">{label}</p>
-          <div className="mt-0.5 text-2xl font-black text-slate-800 leading-tight">
-            {value}
-          </div>
-        </div>
-      </div>
+     <div className="flex justify-between items-center">
+  <div className="min-w-0">
+    <p className="text-[11px] text-slate-500 font-medium">{label}</p>
+    <div className="mt-0.5 text-2xl font-black text-slate-800 leading-tight">
+      {value}
+    </div>
+  </div>
+  <div
+    className={`w-11 h-11 shrink-0 rounded-xl flex items-center justify-center text-white text-xl ${iconBg}`}
+  >
+    {icon}
+  </div>
+</div>
       <p className="text-[10px] text-slate-400">{sub}</p>
     </div>
   );
 }
 
-/* ───────── صف حجز ───────── */
 function BookingRow({ booking }) {
   const { name, seat, hours, price, status } = booking;
   const st = STATUS_STYLES[status];
 
   return (
     <div className="flex items-center justify-between gap-4 px-5 py-3.5 border-t border-slate-100">
-      {/* الاسم والتفاصيل (يمين بالـ RTL) */}
       <div className="min-w-0">
         <p className="text-sm font-bold text-slate-800 truncate">{name}</p>
         <p className="mt-0.5 text-[11px] text-slate-400">
@@ -81,9 +74,8 @@ function BookingRow({ booking }) {
         </p>
       </div>
 
-      {/* السعر والحالة (يسار) */}
       <div className="flex flex-col items-end gap-1.5 shrink-0">
-        <span className="text-sm font-black" style={{ color: OWNER }}>
+        <span className="text-sm font-black text-[var(--primary)]">
           {price}₪
         </span>
         <span
@@ -96,14 +88,12 @@ function BookingRow({ booking }) {
   );
 }
 
-/* ───────── الصفحة ───────── */
 const OwnerDashboard = () => {
   const s = STATS;
 
   return (
     <div dir="rtl" className="space-y-6 pb-20">
-      {/* الهيدر المشترك بأيقونة خاصة بدور owner */}
-      <PageHeader title="لوحة تحكم المساحة" icon={<RiStore2Line />} />
+      <PageHeader title="لوحة تحكم المساحة" icon={<RiStore2Line />} role="owner"/>
 
       {/* الإحصائيات */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -147,11 +137,12 @@ const OwnerDashboard = () => {
         <div className="flex items-center justify-between px-5 py-4">
           <h2 className="text-sm font-bold text-slate-800">آخر الحجوزات الجديدة</h2>
           <span
-            className="flex items-center gap-1 text-[10px]"
-            style={{ color: OWNER }}
+            className="flex items-center gap-1 text-[13px] text-[var(--primary)]"
+           
           >
-            <RiPulseLine size={13} />
             يتحدث تلقائياً
+            <RiPulseLine size={15} />
+
           </span>
         </div>
 

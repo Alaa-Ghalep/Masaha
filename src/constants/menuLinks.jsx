@@ -3,6 +3,9 @@ import { RiHome4Line, RiSearchLine, RiUserLine,
   RiCalendarCheckLine, RiPriceTag3Line,
   RiSettings3Line, RiTeamLine, RiFileListLine,
   RiUserStarLine,
+  RiCalendarEventLine,
+  RiAlertLine,
+  
 } from 'react-icons/ri';
 
 export const MENU_LINKS = {
@@ -26,11 +29,11 @@ export const MENU_LINKS = {
 
   owner: [
     { name: 'الرئيسية',         path: '/owner/dashboard',        icon: <RiHome4Line />,    exact: true },
-    { name: 'الفعاليات',          path: '/owner/spaces',           icon: <RiBuildingLine /> },
-    { name: 'العروض',         path: '/owner/bookings',         icon: <RiCalendarCheckLine /> },
+    { name: 'الفعاليات',          path: '/owner/events',           icon: <RiCalendarEventLine /> },
+    { name: 'العروض',         path: '/owner/offers',         icon: <RiPriceTag3Line /> },
     { name: 'التقارير',         path: '/owner/reports',          icon: <RiBarChartBoxLine /> },
-    { name: 'الطوارئ',        path: '/owner/notifications',    icon: <RiNotification3Line /> },
-    { name: 'ادارة الموظفين',        path: '/owner/settings',         icon: <RiSettings3Line /> },
+    { name: 'الطوارئ',        path: '/owner/emergency',    icon: <RiAlertLine /> },
+    { name: 'ادارة الموظفين',        path: '/owner/staff',         icon: <RiTeamLine /> },
   ],
 
   receptionist: [
