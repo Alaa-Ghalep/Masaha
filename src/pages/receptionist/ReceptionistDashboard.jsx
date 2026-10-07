@@ -35,7 +35,7 @@ function OccupancyCard({ occupied, capacity }) {
   const available = Math.max(capacity - occupied, 0);
 
   return (
- <div dir="rtl" className="bg-gradient-to-br from-[var(--receptionist-primary)] to-[var(--receptionist-secondary)] rounded-3xl p-6 shadow flex flex-row items-center justify-start gap-6">
+ <div dir="rtl" className="bg-gradient-to-br from-[var(--receptionist-primary)] to-[var(--receptionist-secondary)] rounded-3xl p-6 shadow flex flex-col md:flex-row items-center justify-start gap-6">
   
   <div className="relative w-40 h-40 shrink-0">
     <svg viewBox="0 0 100 100" className="w-40 h-40 -rotate-90">

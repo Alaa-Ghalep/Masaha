@@ -3,8 +3,8 @@ import { RiHome5Line, RiUserReceived2Line } from "react-icons/ri";
 import PageHeader from "../../components/common/PageHeader"; 
 import OccupancyCard from "../../components/receptionist/OccupancyCard";
 import AttendeesList from "../../components/receptionist/AttendeesList";
-import CheckInForm from "../../components/receptionist/CheckInForm";
-import { SPACE_CAPACITY, INITIAL_ATTENDEES } from "../../constants/receptionistData";
+
+import {  INITIAL_ATTENDEES } from "../../constants/receptionistData";
 
 export default function Home() {
   const [attendees, setAttendees] = useState(INITIAL_ATTENDEES);
@@ -38,15 +38,7 @@ export default function Home() {
         roleIcon={<RiUserReceived2Line size={20} />}
       />
 
-      {/* <div className="mx-auto flex w-full max-w-3xl flex-col gap-5 p-4">
-        <OccupancyCard occupied={occupied} capacity={SPACE_CAPACITY} />
-        <AttendeesList attendees={attendees} onCheckOut={handleCheckOut} />
-        <CheckInForm
-          occupied={occupied}
-          capacity={SPACE_CAPACITY}
-          onCheckIn={handleCheckIn}
-        />
-      </div> */}
+   
     </div>
   );
 }
